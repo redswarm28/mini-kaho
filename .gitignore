@@ -1,0 +1,6 @@
+build/
+docs/
+experiment/
+node_modules/
+util/
+config.json

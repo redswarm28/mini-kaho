@@ -1,0 +1,37 @@
+{
+  "name": "minikaho",
+  "version": "1.0.0",
+  "description": "This is my first bot after learning programming language (and the major updates for Kaho bot.)",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "install": "node-pre-gyp install --fallback-to-build"
+  },
+  "author": "Carl#5404",
+  "license": "ISC",
+  "dependencies": {
+    "basic-instagram-user-details": "^1.0.2",
+    "canvas-constructor": "^4.1.0",
+    "cpu-stat": "^2.0.1",
+    "discord.js": "^12.4.1",
+    "instagram-profile-picture": "^1.0.5",
+    "mathjs": "^7.5.1",
+    "moment": "^2.29.1",
+    "moment-duration-format": "^2.3.2",
+    "moment-timezone": "^0.5.31",
+    "node-pre-gyp": "0.6.x",
+    "node-superfetch": "^0.1.10",
+    "request": "^2.88.2",
+    "superagent": "^6.1.0",
+    "weather-js": "^2.0.0"
+  },
+  "devDependencies": {
+    "standard": "^15.0.1",
+    "aws-sdk": "2.x"
+  },
+  "binary": {
+    "module_name": "your_module",
+    "module_path": "./lib/binding/",
+    "host": "https://your_module.s3-us-west-1.amazonaws.com"
+  }
+}
