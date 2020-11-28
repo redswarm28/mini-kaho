@@ -4,12 +4,16 @@ const { token } = require('./config/config.json')
 const client = new Client()
 
 /* Awal Command Handler */
-const commandFiles = fs.readdirSync('./commands').filter(file => file.endsWith('.js'))
+const folders = fs.readdirSync('./commands')
 client.commands = new Collection()
 
-for (const file of commandFiles) { // Command Handler
-  const command = require(`./commands/${file}`)
-  client.commands.set(command.name, command)
+for (const folder of folders) {
+  const files = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'))
+
+  for (const file of files) {
+    const command = require(`./commands/${folder}/${file}`)
+    client.commands.set(command.name, command)
+  }
 }
 /* Akhir Command Handler */
 
