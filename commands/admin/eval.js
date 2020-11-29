@@ -9,7 +9,6 @@ module.exports = {
   execute (message, args) {
     const { guild, member, content } = message
     const input = args.join(' ')
-
     if (member.id === guild.ownerID) { // guild.ownerID dapat diganti dengan user ID kita.
       try {
         const result = eval(content.replace('k.eval ', ''))
