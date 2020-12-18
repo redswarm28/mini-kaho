@@ -13,26 +13,24 @@ module.exports = {
   name: 'reload',
   description: 'Reload sebuah perintah',
   args: true,
-  usage: '<command>',
+  usage: '<command directory>',
   execute (message, args) {
-    const commandName = args[0].toLowerCase()
-    const folders = fs.readdirSync('./commands')
-    for (const folder of folders) {
-      const files = fs.readdirSync(`./commands/${folder}`).filter(file => file.endsWith('.js'))
-      for (file of files) {
-        if (file === `${commandName}.js`) {
-          const command = message.client.commands.get(commandName) || message.client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName))
-          delete require.cache[require.resolve(`../${folder}/${file}`)]
-          try {
-            const newCommand = require(`../${folder}/${file}`)
-            message.client.commands.set(newCommand.name, newCommand)
-          } catch (error) {
-            console.error(error)
-            message.channel.send(`There is an error when reloading \`${command.name}\`:\n\`${error.message}\``)
-          }
-          message.channel.send(`${command.name} has reloaded`)
-        }
+    const { channel, client, guild, member } = message
+    const dir = args.join(' ')
+    if (member.id === guild.ownerID) { // guild.ownerID dapat diganti dengan user ID kita.
+      delete require.cache[require.resolve(dir)]
+
+      try {
+        const newCommand = require(dir)
+        client.commands.set(newCommand.name, newCommand)
+      } catch (error) {
+        console.log(error)
+        channel.send(`There is an error when reloading this command:\n\`${error.message}\``)
       }
+
+      message.channel.send('Reloaded!')
+    } else {
+      console.log("Doesn't work")
     }
   }
-} 
+}

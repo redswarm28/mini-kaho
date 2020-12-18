@@ -1,5 +1,6 @@
 module.exports = {
   name: 'coinflip',
+  category: 'fun',
   description: 'Simple coinflip',
   execute (message, args) {
     function coinFlip () {

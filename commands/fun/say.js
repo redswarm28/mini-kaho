@@ -1,5 +1,6 @@
 module.exports = {
   name: 'say',
+  categry: 'fun',
   description: 'Say something',
   args: true,
   usage: '<text>',

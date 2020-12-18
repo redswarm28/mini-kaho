@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js')
 
 module.exports = {
   name: 'addbot',
+  category: 'guild',
   description: 'Give a bot invite link to your server.',
   args: true,
   usage: '<bot id> [prefix]',

@@ -3,6 +3,7 @@ const fetch = require('node-fetch')
 
 module.exports = {
   name: 'achievement',
+  category: 'image',
   aliases: ['ach'],
   description: 'Minecraft achievement unlocked',
   args: true,

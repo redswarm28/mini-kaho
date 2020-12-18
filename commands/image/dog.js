@@ -3,6 +3,7 @@ const superagent = require('superagent')
 
 module.exports = {
   name: 'dog',
+  category: 'image',
   aliases: ['doggo'],
   description: 'Random dog image',
   async execute (message, args) {

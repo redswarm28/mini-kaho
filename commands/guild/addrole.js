@@ -8,6 +8,7 @@
 
 module.exports = {
   name: 'addrole',
+  category: 'guild',
   description: 'Add a role to your server',
   args: true,
   usage: '<role name> <role color>',

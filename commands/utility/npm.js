@@ -4,6 +4,7 @@ const moment = require('moment')
 
 module.exports = {
   name: 'npm',
+  category: 'utility',
   description: 'Show information about node packages',
   cooldown: 5,
   args: true,

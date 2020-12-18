@@ -1,5 +1,6 @@
 module.exports = {
   name: 'addemoji',
+  category: 'guild',
   description: 'Add an emoji to your server.',
   cooldown: 10,
   args: true,

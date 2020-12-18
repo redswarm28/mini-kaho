@@ -3,6 +3,7 @@ const { MessageEmbed } = require('discord.js')
 module.exports = {
   name: 'eval',
   aliases: ['e'],
+  category: 'admin',
   description: 'Another terminal',
   args: true,
   usage: '<code>',
@@ -16,14 +17,12 @@ module.exports = {
           .setColor(0xffffff)
           .addField('Input', `\`\`\`js\n${input}\`\`\``)
           .addField('Output', `\`\`\`js\n${result}\`\`\``)
-
         message.channel.send(embed)
       } catch (e) {
         const embed = new MessageEmbed()
           .setColor(0xffffff)
           .addField('Input', `\`\`\`js\n${input}\`\`\``)
           .addField('Output', `\`\`\`js\n${e}\`\`\``)
-
         message.channel.send(embed)
       }
     } else {

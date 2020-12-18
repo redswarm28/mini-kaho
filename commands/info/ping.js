@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js')
 
 module.exports = {
   name: 'ping',
+  category: 'info',
   description: 'Check bot ping.',
   execute (message, args) {
     const ping = message.client.ws.ping.toFixed(0)
@@ -18,7 +19,8 @@ module.exports = {
 
     const embed = new MessageEmbed()
       .setColor(color)
-      .addField('Ping', `\`${ping}ms\``)
+      .setTitle('Pong! :ping_pong:')
+      .addField('API', `\`${ping}ms\``)
       .addField('Latency', `\`${latency}ms\``)
 
     message.channel.send(embed)

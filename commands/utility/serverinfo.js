@@ -3,6 +3,7 @@ const moment = require('moment')
 
 module.exports = {
   name: 'serverinfo',
+  category: 'utility',
   aliases: ['server'],
   description: 'Shows information about the server.',
   execute (message, args) {

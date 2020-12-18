@@ -3,6 +3,7 @@ const moment = require('moment-timezone')
 
 module.exports = {
   name: 'time',
+  category: 'utility',
   aliases: ['clock'],
   description: 'Time in Indonesia',
   execute (message, args) {

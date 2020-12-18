@@ -1,5 +1,6 @@
 module.exports = {
   name: 'clear',
+  category: 'utility',
   aliases: ['prune'],
   description: 'Clear message(s)',
   cooldown: 5,

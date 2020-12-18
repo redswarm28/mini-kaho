@@ -3,6 +3,7 @@ const superagent = require('superagent')
 
 module.exports = {
   name: '8ball',
+  category: 'fun',
   description: 'Question and answer',
   args: true,
   usage: '<question>',

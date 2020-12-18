@@ -1,5 +1,6 @@
 module.exports = {
   name: 'createcategory',
+  category: 'guild',
   description: 'Create a new channel category',
   args: true,
   usage: '<category name>',

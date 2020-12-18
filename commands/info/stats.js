@@ -5,6 +5,7 @@ require('moment-duration-format')
 
 module.exports = {
   name: 'stats',
+  category: 'info',
   description: 'Bot stats',
   execute (message, args) {
     const { client } = message

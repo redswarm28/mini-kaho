@@ -1,5 +1,6 @@
 module.exports = {
   name: 'rate',
+  category: 'fun',
   description: 'Rate your waifu.',
   args: true,
   usage: '<text>',

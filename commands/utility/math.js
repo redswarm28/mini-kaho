@@ -3,6 +3,7 @@ const math = require('mathjs')
 
 module.exports = {
   name: 'math',
+  category: 'utility',
   aliases: ['calc', 'calculator'],
   description: 'Simple calculator',
   args: true,

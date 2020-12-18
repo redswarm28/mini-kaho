@@ -3,4 +3,5 @@ docs/
 experiment/
 node_modules/
 util/
+temp/
 config.json

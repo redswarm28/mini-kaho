@@ -2,6 +2,7 @@ const { MessageEmbed } = require('discord.js')
 
 module.exports = {
   name: 'f',
+  category: 'fun', 
   description: 'Press f to pay respect',
   execute (message, args) {
     const embed = new MessageEmbed()

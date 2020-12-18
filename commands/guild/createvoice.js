@@ -1,5 +1,6 @@
 module.exports = {
   name: 'createvoice',
+  category: 'guild',
   description: 'Create a new voice channel',
   args: true,
   usage: '<channel name>',

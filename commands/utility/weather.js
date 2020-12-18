@@ -4,6 +4,7 @@ const moment = require('moment')
 
 module.exports = {
   name: 'weather',
+  category: 'utility',
   description: 'Shows weather',
   args: true,
   usage: '<city name>',
@@ -12,30 +13,23 @@ module.exports = {
       search: args.join(' '),
       degreeType: 'C'
     }, function (err, result) {
-      if (err) {
-        message.channel.send(err)
-      }
+      if (err) message.channel.send(err)
 
-      const { date, imageURL, observationpoint, skytext, temperature, windspeed, humidity } = result[0].current
-      let { degreeType, timezone } = result[0].location
+      const { date, imageUrl, observationpoint, skytext, temperature, winddisplay, humidity } = result[0].current
+      let { degreetype, timezone } = result[0].location
       const time = moment(date).format('MMMM Do YYYY')
-
-      if (degreeType === 'C') {
-        degreeType = 'Celcius'
-      } else {
-        degreeType = 'Fahrenheit'
-      }
+      const type = (degreetype === 'C') ? 'Celcius' : 'Fahrenheit'
 
       const embed = new MessageEmbed()
         .setColor(0xffffff)
         .setTitle('Weather')
-        .setThumbnail(imageURL)
+        .setThumbnail(imageUrl)
         .addField(observationpoint, skytext)
         .addField('Timezone', `GMT ${timezone}`)
         .addField('Time', time)
-        .addField('Degree Type', degreeType)
+        .addField('Degree Type', type)
         .addField('Temperature', `${temperature}° Degrees`)
-        .addField('Wind Speed', windspeed)
+        .addField('Wind Speed', winddisplay)
         .addField('Humidity', humidity)
 
       message.channel.send(embed)
