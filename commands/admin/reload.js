@@ -7,8 +7,6 @@
  * Perintah akan diperbaiki dalam waktu dekat.
  */
 
-const fs = require('fs')
-
 module.exports = {
   name: 'reload',
   description: 'Reload sebuah perintah',

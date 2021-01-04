@@ -8,12 +8,11 @@ module.exports = {
   description: 'Command list',
   cooldown: 5,
   execute (message, args) {
-    const data = []
     const { commands } = message.client
     if (!args.length) {
       function listCmd (category) {
         const name = commands
-          .filter(cmd => cmd.category == category)
+          .filter(cmd => cmd.category === category)
           .map(cmd => cmd.name)
           .join(', ')
         return name
@@ -24,6 +23,7 @@ module.exports = {
       const guild = listCmd('guild')
       const image = listCmd('image')
       const info = listCmd('info')
+      const music = listCmd('music')
       const utility = listCmd('utility')
       const avatar = message.client.user.displayAvatarURL({
         dynamic: true,
@@ -39,6 +39,7 @@ module.exports = {
         .addField('Guild', guild)
         .addField('Image', image)
         .addField('Info', info)
+        .addField('Music', music)
         .addField('Utility', utility)
         .setFooter(`Use ${prefix}help <command name> to get more info.`)
       message.channel.send(embed)

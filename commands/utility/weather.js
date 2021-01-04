@@ -16,7 +16,7 @@ module.exports = {
       if (err) message.channel.send(err)
 
       const { date, imageUrl, observationpoint, skytext, temperature, winddisplay, humidity } = result[0].current
-      let { degreetype, timezone } = result[0].location
+      const { degreetype, timezone } = result[0].location
       const time = moment(date).format('MMMM Do YYYY')
       const type = (degreetype === 'C') ? 'Celcius' : 'Fahrenheit'
 

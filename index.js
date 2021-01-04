@@ -1,7 +1,9 @@
 const { readdirSync } = require('fs')
-const { Client, Collection } = require('discord.js')
 const { token } = require('./config/config.json')
+const { Client, Collection } = require('discord.js')
 const client = new Client()
+const { Player } = require('discord-player')
+client.player = new Player(client)
 
 /* Awal Command Handler */
 const folders = readdirSync('./commands')
@@ -18,8 +20,17 @@ for (const folder of folders) {
 /* Awal Event Handler */
 const eventFiles = readdirSync('./events')
   .filter(file => file.endsWith('.js'))
+
+const musicEventFiles = readdirSync('./events/musicPlayer')
+  .filter(file => file.endsWith('.js'))
+
 for (const file of eventFiles) { // Event Handler
   const event = require(`./events/${file}`)
+  event(client)
+}
+
+for (const file of musicEventFiles) { // Music Event Handler
+  const event = require(`./events/musicPlayer/${file}`)
   event(client)
 }
 

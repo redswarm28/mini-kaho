@@ -13,14 +13,14 @@ module.exports = {
      * Issue (1): Memory Leak when use ":" operator.
      * Solution: limit the number until 99.
      */
-    let item = args[0]
-    const condition = item.indexOf(':') === 1;
+    const item = args[0]
+    const condition = item.indexOf(':') === 1
     if (condition) {
       if (!(item.startsWith(1))) return
       const amount = item.split(':').slice(1)
       if (amount > 100) {
         message.channel.send('Sorry, only 99')
-        return 
+        return
       }
     }
 

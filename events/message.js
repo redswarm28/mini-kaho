@@ -2,13 +2,14 @@ const { Collection } = require('discord.js')
 const { prefix } = require('../config/config.json')
 const cooldowns = new Collection() // Cooldowns
 
-module.exports = (client) => {
+module.exports = client => {
   client.on('message', message => {
     const args = message.content.slice(prefix.length).trim().split(/ +/)
     const commandName = args.shift().toLowerCase()
     if (!message.content.startsWith(prefix) || message.author.bot || message.channel.type === 'dm') return
     const command = client.commands.get(commandName) || client.commands.find(cmd => cmd.aliases && cmd.aliases.includes(commandName)) // Command Aliases
     if (!command) return
+
     if (command.args && !args.length) { // Expected Command Usage & Required Arguments
       let reply = `You didn't provide any arguments, ${message.author}`
       if (command.usage) {
